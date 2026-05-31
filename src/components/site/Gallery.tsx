@@ -4,6 +4,8 @@ import interior from "@/assets/gallery-interior.jpg";
 import meze from "@/assets/gallery-meze.jpg";
 import lahmacun from "@/assets/gallery-lahmacun.jpg";
 import kunefe from "@/assets/gallery-kunefe.jpg";
+import ocak from "@/assets/gallery-ocak.jpg";
+import cay from "@/assets/gallery-cay.jpg";
 
 const items = [
   { src: kebab, alt: "Adana kebabı sunumu", span: "md:row-span-1" },
@@ -12,6 +14,8 @@ const items = [
   { src: meze, alt: "Meze tabağı", span: "md:row-span-1" },
   { src: lahmacun, alt: "Lahmacun ve pide", span: "md:row-span-2" },
   { src: kunefe, alt: "Künefe tatlısı", span: "md:row-span-1" },
+  { src: ocak, alt: "Mangal keyfi", span: "md:row-span-1" },
+  { src: cay, alt: "Türk çayı", span: "md:row-span-1" },
 ];
 
 export function Gallery() {
@@ -30,11 +34,11 @@ export function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 md:auto-rows-[220px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 md:auto-rows-[220px] md:grid-flow-dense">
           {items.map((it, i) => (
             <figure
               key={i}
-              className={`reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all ${it.span}`}
+              className={`reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full ${it.span}`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <img
