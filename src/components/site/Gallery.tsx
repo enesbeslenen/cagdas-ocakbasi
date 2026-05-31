@@ -8,14 +8,14 @@ import ocak from "@/assets/gallery-ocak.jpg";
 import cay from "@/assets/gallery-cay.jpg";
 
 const items = [
-  { src: kebab, alt: "Adana kebabı sunumu", span: "md:row-span-1" },
-  { src: fire, alt: "Ocakbaşı ateşi", span: "md:row-span-2" },
-  { src: interior, alt: "Mekan iç tasarımı", span: "md:row-span-1" },
-  { src: meze, alt: "Meze tabağı", span: "md:row-span-1" },
-  { src: lahmacun, alt: "Lahmacun ve pide", span: "md:row-span-2" },
-  { src: kunefe, alt: "Künefe tatlısı", span: "md:row-span-1" },
-  { src: ocak, alt: "Mangal keyfi", span: "md:row-span-1" },
-  { src: cay, alt: "Türk çayı", span: "md:row-span-1" },
+  { src: kebab, alt: "Adana kebabı sunumu" },
+  { src: fire, alt: "Ocakbaşı ateşi" },
+  { src: interior, alt: "Mekan iç tasarımı" },
+  { src: meze, alt: "Meze tabağı" },
+  { src: lahmacun, alt: "Lahmacun ve pide" },
+  { src: kunefe, alt: "Künefe tatlısı" },
+  { src: ocak, alt: "Mangal keyfi" },
+  { src: cay, alt: "Türk çayı" },
 ];
 
 export function Gallery() {
@@ -34,11 +34,11 @@ export function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 md:auto-rows-[220px] md:grid-flow-dense">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 md:auto-rows-[200px]">
           {items.map((it, i) => (
             <figure
               key={i}
-              className={`reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full ${it.span}`}
+              className="reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <img
