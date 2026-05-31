@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cagdas-ocakbasi.lovable.app/sitemap.xml
