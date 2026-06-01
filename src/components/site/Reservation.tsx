@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "904143133800";
+const WHATSAPP_NUMBER = "905466581329";
 
 export function Reservation() {
   const [form, setForm] = useState({
@@ -27,7 +27,7 @@ export function Reservation() {
       <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
 
-      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0 w-full">
         <div className="text-center mb-12 reveal">
           <span className="text-secondary font-semibold uppercase tracking-[0.25em] text-sm">
             Rezervasyon
@@ -42,9 +42,9 @@ export function Reservation() {
 
         <form
           onSubmit={handleSubmit}
-          className="reveal bg-card rounded-3xl p-6 md:p-10 border border-border shadow-xl"
+          className="reveal bg-card rounded-3xl p-6 md:p-10 border border-border shadow-xl overflow-hidden max-w-full"
         >
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 min-w-0">
             <Field label="Ad - Soyad">
               <input
                 required
@@ -76,7 +76,7 @@ export function Reservation() {
                 value={form.date}
                 onChange={(e) => set("date", e.target.value)}
                 min={new Date().toISOString().split("T")[0]}
-                className="form-input"
+                className="form-input form-input-datetime"
               />
             </Field>
 
@@ -86,7 +86,7 @@ export function Reservation() {
                 required
                 value={form.time}
                 onChange={(e) => set("time", e.target.value)}
-                className="form-input"
+                className="form-input form-input-datetime"
               />
             </Field>
           </div>
@@ -114,13 +114,26 @@ export function Reservation() {
       <style>{`
         .form-input {
           width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
           padding: 0.75rem 1rem;
           background: var(--background);
           border: 1px solid var(--border);
           border-radius: 0.75rem;
-          font-size: 0.95rem;
+          font-size: 1rem;
           color: var(--foreground);
           transition: all 0.2s;
+        }
+        .form-input-datetime {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+        .form-input-datetime::-webkit-date-and-time-value {
+          text-align: left;
         }
         .form-input:focus {
           outline: none;
@@ -142,7 +155,7 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={`block ${className}`}>
+    <label className={`block min-w-0 w-full ${className}`}>
       <span className="block text-sm font-semibold text-foreground mb-2">{label}</span>
       {children}
     </label>
