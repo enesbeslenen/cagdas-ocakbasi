@@ -112,9 +112,19 @@
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.reveal {
+/* Visible by default (SSR + no-JS). Hidden only after JS enables reveal animations. */
+html.reveal-ready .reveal:not(.in-view) {
   opacity: 0;
 }
-.reveal.in-view {
+html.reveal-ready .reveal.in-view {
   animation: fade-in-up 0.8s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready .reveal:not(.in-view) {
+    opacity: 1;
+    transform: none;
+  }
+  html.reveal-ready .reveal.in-view {
+    animation: none;
+  }
 }
