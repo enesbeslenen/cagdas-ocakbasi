@@ -3,6 +3,7 @@ import { Phone, Menu as MenuIcon, X } from "lucide-react";
 
 const links = [
   { href: "#home", label: "Ana Sayfa" },
+  { href: "#hakkimizda", label: "Hakkımızda" },
   { href: "#menu", label: "Menü" },
   { href: "#galeri", label: "Galeri" },
   { href: "#rezervasyon", label: "Rezervasyon" },

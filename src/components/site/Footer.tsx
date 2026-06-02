@@ -16,6 +16,7 @@ export function Footer() {
         <div className="md:text-center">
           <h4 className="font-display text-lg font-bold text-white mb-4">Hızlı Bağlantılar</h4>
           <ul className="space-y-2 text-sm">
+            <li><a href="#hakkimizda" className="hover:text-primary transition-colors">Hakkımızda</a></li>
             <li><a href="#menu" className="hover:text-primary transition-colors">Menü</a></li>
             <li><a href="#galeri" className="hover:text-primary transition-colors">Galeri</a></li>
             <li><a href="#rezervasyon" className="hover:text-primary transition-colors">Rezervasyon</a></li>
