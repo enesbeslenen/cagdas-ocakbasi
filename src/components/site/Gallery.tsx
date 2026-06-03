@@ -1,21 +1,21 @@
-import kebab from "@/assets/gallery-kebab.jpg";
-import fire from "@/assets/gallery-fire.jpg";
-import interior from "@/assets/gallery-interior.jpg";
-import meze from "@/assets/gallery-meze.jpg";
-import lahmacun from "@/assets/gallery-lahmacun.jpg";
-import kunefe from "@/assets/gallery-kunefe.jpg";
-import ocak from "@/assets/gallery-ocak.jpg";
-import cay from "@/assets/gallery-cay.jpg";
+type GalleryItem = {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+};
 
-const items = [
-  { src: kebab, alt: "Adana kebabı sunumu" },
-  { src: fire, alt: "Ocakbaşı ateşi" },
-  { src: interior, alt: "Mekan iç tasarımı" },
-  { src: meze, alt: "Meze tabağı" },
-  { src: lahmacun, alt: "Lahmacun ve pide" },
-  { src: kunefe, alt: "Künefe tatlısı" },
-  { src: ocak, alt: "Mangal keyfi" },
-  { src: cay, alt: "Türk çayı" },
+const items: GalleryItem[] = [
+  { src: "/yemek-kusbasi-sis.jpeg", alt: "Kuşbaşı şiş", objectPosition: "center 72%" },
+  { src: "/yemek-adana-kebap.jpeg", alt: "Adana kebabı" },
+  { src: "/yemek-patlican-kebabi.jpeg", alt: "Patlıcan kebabı" },
+  { src: "/yemek-kusbasi-sis-2.jpeg", alt: "Kuşbaşı şiş", objectPosition: "center 68%" },
+  { src: "/yemek-karisik-izgara-tabak.jpeg", alt: "Karışık ızgara tabağı" },
+  {
+    src: "/yemek-karisik-izgara-tepsi.jpeg",
+    alt: "Karışık ızgara tepsi",
+    objectPosition: "center 78%",
+  },
+  { src: "/yemek-sillik-tatlisi.jpeg", alt: "Şıllık tatlısı" },
 ];
 
 export function Gallery() {
@@ -35,17 +35,18 @@ export function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 md:auto-rows-[200px]">
-          {items.map((it, i) => (
+          {items.map((it) => (
             <figure
-              key={i}
+              key={it.src}
               className="reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full"
-              style={{ animationDelay: `${i * 80}ms` }}
             >
               <img
                 src={it.src}
                 alt={it.alt}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                style={it.objectPosition ? { objectPosition: it.objectPosition } : undefined}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                 <figcaption className="text-white font-display text-lg">{it.alt}</figcaption>

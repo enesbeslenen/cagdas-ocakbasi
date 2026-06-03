@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
 export function Contact() {
   return (
@@ -32,11 +32,12 @@ export function Contact() {
             <div className="pt-4">
               <p className="text-sm font-semibold mb-3 text-foreground">Bizi Takip Edin</p>
               <div className="flex gap-3">
-                <SocialLink href="#" label="Instagram">
+                <SocialLink
+                  href="https://www.instagram.com/cagdas_ocakbasii/"
+                  label="Instagram"
+                  external
+                >
                   <Instagram className="w-5 h-5" />
-                </SocialLink>
-                <SocialLink href="#" label="Facebook">
-                  <Facebook className="w-5 h-5" />
                 </SocialLink>
               </div>
             </div>
@@ -86,15 +87,18 @@ function SocialLink({
   href,
   label,
   children,
+  external,
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
+  external?: boolean;
 }) {
   return (
     <a
       href={href}
       aria-label={label}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary hover:scale-110 transition-all"
     >
       {children}

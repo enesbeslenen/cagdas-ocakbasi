@@ -1,34 +1,122 @@
 import { useState } from "react";
+import {
+  CakeSlice,
+  ChefHat,
+  Flame,
+  GlassWater,
+  Sandwich,
+  type LucideIcon,
+} from "lucide-react";
 
-type Item = { name: string; desc: string; price: string };
-
-const menu: Record<string, Item[]> = {
-  Kebaplar: [
-    { name: "Urfa Kebabı", desc: "Acısız özel kıyma, közlenmiş biber ve domates eşliğinde.", price: "₺320" },
-    { name: "Adana Kebabı", desc: "Usta ellerden, hafif acılı klasik şişte kıyma kebabı.", price: "₺320" },
-    { name: "Ciğer Şiş", desc: "Taze kuzu ciğeri, közde, soğan ve sumak ile.", price: "₺280" },
-    { name: "Beyti Sarma", desc: "Yufkaya sarılı kıyma kebabı, yoğurt ve sos eşliğinde.", price: "₺360" },
+const menu: Record<string, string[]> = {
+  "Izgara Çeşitleri": [
+    "Kuşbaşı Şiş",
+    "Ciğer Şiş",
+    "Terbiyesiz Tavuk",
+    "Terbiyeli Tavuk",
+    "Yürek Şiş",
+    "Dalak Şiş",
+    "Kanat Şiş",
   ],
-  "Ara Sıcaklar": [
-    { name: "İçli Köfte", desc: "El açması bulgur hamuru içinde baharatlı iç harcı.", price: "₺160" },
-    { name: "Sigara Böreği", desc: "Çıtır yufka içinde beyaz peynir ve maydanoz.", price: "₺120" },
-    { name: "Lahmacun", desc: "İnce hamur, taze kıyma harcı, taş fırında.", price: "₺90" },
-  ],
-  Mezeler: [
-    { name: "Haydari", desc: "Süzme yoğurt, taze nane ve sarımsak.", price: "₺95" },
-    { name: "Acılı Ezme", desc: "Domates, biber, soğan ve özel baharatlar.", price: "₺95" },
-    { name: "Humus", desc: "Nohut püresi, tahin, zeytinyağı ve közlenmiş biber.", price: "₺110" },
+  "Kebap Çeşitleri": [
+    "Adana Kebap",
+    "Urfa Kebap",
+    "Patlıcanlı Kebap",
+    "Domatesli Kebap",
+    "Haşhaş Kebap",
+    "Birecik Kebap",
+    "Siverek Kebap",
   ],
   Tatlılar: [
-    { name: "Künefe", desc: "Antep fıstıklı, taze peynirli, sıcak servis.", price: "₺180" },
-    { name: "Şıllık Tatlısı", desc: "Şanlıurfa'ya özgü, cevizli yöresel tatlı.", price: "₺140" },
-    { name: "Katmer", desc: "Antep fıstığı ve kaymak ile katmerli tatlı.", price: "₺190" },
+    "Cevizli Şıllık Tatlısı Tepsi",
+    "Cevizli Kaymaklı Şıllık Tatlısı Tepsi",
+    "Fıstıklı Şıllık Tatlısı Tepsi",
+    "Fıstıklı Kaymaklı Şıllık Tatlısı Tepsi",
+    "Sade Dondurma",
   ],
+  "Pide - Lahmacun": [
+    "Lahmacun",
+    "Kaşarlı Pide",
+    "Kuşbaşılı Pide",
+    "Kuşbaşılı Kaşarlı Pide",
+  ],
+  Aparatifler: ["İçli Köfte"],
   İçecekler: [
-    { name: "Şalgam Suyu", desc: "Acılı veya acısız, kebabın olmazsa olmazı.", price: "₺40" },
-    { name: "Mırra", desc: "Geleneksel Urfa kahvesi, fincanda.", price: "₺55" },
-    { name: "Ayran", desc: "Ev yapımı, köpüklü taze ayran.", price: "₺35" },
+    "Su",
+    "Yayık Ayran",
+    "Kola",
+    "Fanta",
+    "Sprite",
+    "Kutu Ayran",
+    "Şalgam",
+    "Soda",
+    "Meyve Suyu",
+    "Ice Tea",
   ],
+};
+
+type MenuImage = {
+  src: string;
+  objectPosition?: string;
+  /** Açık arka planlı ürünler: multiply; koyu arka planlı ürün görselleri: darkBackground */
+  blendMode?: "multiply";
+  darkBackground?: boolean;
+};
+
+/** Yerel restoran ve ürün fotoğrafları. */
+const menuImages: Record<string, MenuImage> = {
+  "Kuşbaşı Şiş": { src: "/menu/kuşbaşı-şiş.png", objectPosition: "center 72%" },
+  "Ciğer Şiş": { src: "/menu/ciğer-şiş.png", objectPosition: "center 55%" },
+  "Terbiyesiz Tavuk": { src: "/menu/terbiyesiz-tavuk.png", objectPosition: "center 32%" },
+  "Terbiyeli Tavuk": { src: "/menu/terbiyeli-tavuk.png", objectPosition: "62% 42%" },
+  "Yürek Şiş": { src: "/menu/yürek-şiş.png", objectPosition: "center 55%" },
+  "Dalak Şiş": { src: "/menu/dalak-şiş.jpeg", objectPosition: "center 78%" },
+  "Kanat Şiş": { src: "/menu/kanat-şiş.jpeg", objectPosition: "center 55%" },
+  "Adana Kebap": { src: "/menu/adana-kebap.png", objectPosition: "center 65%" },
+  "Urfa Kebap": { src: "/menu/urfa-kebap.png", objectPosition: "center 65%" },
+  "Patlıcanlı Kebap": { src: "/menu/patlıcanlı-kebap.png", objectPosition: "center 60%" },
+  "Domatesli Kebap": { src: "/menu/domatesli-kebap.png", objectPosition: "center 68%" },
+  "Haşhaş Kebap": { src: "/menu/haşhaş-menü.png", objectPosition: "center 65%" },
+  "Birecik Kebap": { src: "/menu/birecik-kebap.png", objectPosition: "center 78%" },
+  "Siverek Kebap": { src: "/menu/siverek-kebap.png", objectPosition: "center 65%" },
+  "Cevizli Şıllık Tatlısı Tepsi": { src: "/menu/cevizli-şıllık-tatlısı-tepsi.jpg" },
+  "Cevizli Kaymaklı Şıllık Tatlısı Tepsi": {
+    src: "/menu/cevizli-kaymaklı-şıllık-tatlısı-tepsi.jpg",
+  },
+  "Fıstıklı Şıllık Tatlısı Tepsi": { src: "/menu/fıstıklı-şıllık-tatlısı-tepsi.jpg" },
+  "Fıstıklı Kaymaklı Şıllık Tatlısı Tepsi": {
+    src: "/menu/fıstıklı-kaymaklı-şıllık-tatlısı-tepsi.jpg",
+  },
+  "Sade Dondurma": { src: "/menu/sade-dondurma.png", objectPosition: "center 88%" },
+  Lahmacun: { src: "/menu/lahmacun.png" },
+  "Kaşarlı Pide": { src: "/menu/kasarli-pide.png" },
+  "Kuşbaşılı Pide": { src: "/menu/kusbasili-pide.png" },
+  "Kuşbaşılı Kaşarlı Pide": { src: "/menu/kusbasili-kasarli-pide.png" },
+  "İçli Köfte": { src: "/menu/icli-kofte.png" },
+  Su: { src: "/menu/su.png" },
+  "Yayık Ayran": { src: "/menu/yayik-ayran.png" },
+  "Kutu Ayran": { src: "/menu/kutu-ayran.png" },
+  Kola: { src: "/menu/kola.png" },
+  Fanta: { src: "/menu/fanta.png" },
+  Sprite: { src: "/menu/sprite.png" },
+  Şalgam: { src: "/menu/salgam.png" },
+  Soda: { src: "/menu/soda.png" },
+  "Meyve Suyu": { src: "/menu/meyve-suyu.png" },
+  "Ice Tea": { src: "/menu/ice-tea.png" },
+};
+
+const drinkItems = new Set(menu["İçecekler"]);
+
+/** Tüm yemek kartlarında sabit görsel yüksekliği. */
+const MENU_IMAGE_HEIGHT = "h-44 sm:h-48";
+
+const categoryIcons: Record<string, LucideIcon> = {
+  "Izgara Çeşitleri": Flame,
+  "Kebap Çeşitleri": Flame,
+  Tatlılar: CakeSlice,
+  "Pide - Lahmacun": Sandwich,
+  Aparatifler: ChefHat,
+  İçecekler: GlassWater,
 };
 
 const categories = Object.keys(menu);
@@ -52,39 +140,74 @@ export function MenuSection() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 reveal">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActive(c)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                active === c
-                  ? "bg-primary text-primary-foreground shadow-warm scale-105"
-                  : "bg-background text-foreground border border-border hover:border-primary hover:text-primary"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+          {categories.map((c) => {
+            const TabIcon = categoryIcons[c];
+            return (
+              <button
+                key={c}
+                onClick={() => setActive(c)}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  active === c
+                    ? "bg-primary text-primary-foreground shadow-warm scale-105"
+                    : "bg-background text-foreground border border-border hover:border-primary hover:text-primary"
+                }`}
+              >
+                <TabIcon className="w-4 h-4 shrink-0" />
+                {c}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {menu[active].map((item) => (
-            <article
-              key={`${active}-${item.name}`}
-              className="group bg-card rounded-2xl p-6 md:p-7 border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-warm transition-all animate-fade-in"
-            >
-              <div className="flex items-baseline gap-4 mb-2">
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground flex-1 group-hover:text-primary transition-colors">
-                  {item.name}
-                </h3>
-                <div className="flex-1 border-b border-dashed border-border self-end mb-2" />
-                <span className="font-display text-xl md:text-2xl font-bold text-primary">
-                  {item.price}
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-            </article>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {menu[active].map((name) => {
+            const image = menuImages[name];
+            const isDrink = drinkItems.has(name);
+
+            return (
+              <article
+                key={`${active}-${name}`}
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-warm transition-all animate-fade-in"
+              >
+                {image && (
+                  <div
+                    className={`relative ${MENU_IMAGE_HEIGHT} overflow-hidden ${
+                      isDrink
+                        ? `flex items-center justify-center px-3 py-2 ${
+                            image.darkBackground ? "bg-neutral-900" : "bg-white"
+                          }`
+                        : "bg-muted"
+                    }`}
+                  >
+                    <img
+                      src={image.src}
+                      alt={name}
+                      loading="lazy"
+                      decoding="async"
+                      className={
+                        isDrink
+                          ? `max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105${
+                              image.darkBackground ? "" : " mix-blend-multiply"
+                            }`
+                          : "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      }
+                      style={
+                        image.objectPosition
+                          ? { objectPosition: image.objectPosition }
+                          : undefined
+                      }
+                    />
+                  </div>
+                )}
+
+                <div className="px-4 py-4 md:px-5 md:py-5 text-center">
+                  <h3 className="font-display text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {name}
+                  </h3>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

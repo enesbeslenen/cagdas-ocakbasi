@@ -1,21 +1,21 @@
 import interiorImg from "@/assets/gallery-interior.jpg";
-import { Flame, Heart, Users } from "lucide-react";
+import { Flame, Heart, Star } from "lucide-react";
 
 const highlights = [
   {
     icon: Flame,
-    title: "Geleneksel Ocakbaşı",
-    desc: "Urfa'nın köklü kebap kültürünü, usta ellerle ve gerçek mangal ateşiyle yaşatıyoruz.",
+    title: "2005'ten Beri",
+    desc: "2005 yılında kurulan Çağdaş Ocakbaşı, Şanlıurfa'da ocakbaşı geleneğini aynı özen ve samimiyetle sürdürüyor.",
+  },
+  {
+    icon: Star,
+    title: "Kuşbaşı Şiş",
+    desc: "Misafirlerimizin en çok tercih ettiği, ön plandaki lezzetlerimizden biri. Ustalıkla hazırlanan kuşbaşı şişimizi mutlaka deneyin.",
   },
   {
     icon: Heart,
-    title: "Özenli Lezzet",
-    desc: "Taze malzeme, yöresel baharatlar ve her tabakta aynı sıcaklık ve samimiyet.",
-  },
-  {
-    icon: Users,
-    title: "Aile Ortamı",
-    desc: "Yıllardır misafirlerimizi ailemiz gibi ağırlıyor; sofrada birlikte güzel anılar biriktiriyoruz.",
+    title: "Şıllık Tatlısı",
+    desc: "Yöresel şıllık tatlısı, soframızın vazgeçilmez finali. Cevizli ve kaymaklı çeşitleriyle en sevilen tatlılarımızdan.",
   },
 ];
 
@@ -35,8 +35,8 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-transparent" />
             </div>
             <div className="absolute -bottom-5 -right-2 sm:right-6 bg-primary text-primary-foreground rounded-2xl px-6 py-4 shadow-warm">
-              <p className="font-display text-3xl font-bold leading-none">20+</p>
-              <p className="text-sm font-medium mt-1 opacity-90">Yıllık Deneyim</p>
+              <p className="font-display text-3xl font-bold leading-none">2005</p>
+              <p className="text-sm font-medium mt-1 opacity-90">Kuruluş Yılı</p>
             </div>
           </div>
 
@@ -49,12 +49,14 @@ export function About() {
                 Şanlıurfa'nın Kalbinde Bir Lezzet Evi
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Çağdaş Ocakbaşı, Şanlıurfa'nın en köklü lezzet duraklarından biridir. Yıllardır
-                misafirlerimize geleneksel ocakbaşı kültürünü, samimi bir atmosferde sunuyoruz.
+                <strong className="text-foreground">2005 yılında kurulan</strong> Çağdaş Ocakbaşı,
+                Şanlıurfa'nın köklü lezzet duraklarından biridir. Yıllardır misafirlerimize geleneksel
+                ocakbaşı kültürünü, samimi bir atmosferde sunuyoruz.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Adana'dan Urfa'ya, ciğerden künefeye kadar geniş menümüzle her damak zevkine hitap
-                ediyor; her tabağı ustalıkla, ateşin sıcaklığıyla hazırlıyoruz.
+                Özellikle <strong className="text-foreground">kuşbaşı şiş</strong> ve yöresel{" "}
+                <strong className="text-foreground">şıllık tatlısı</strong> en çok sevilen ve ön planda
+                olan ürünlerimizdir. Her tabağı ustalıkla, ateşin sıcaklığıyla hazırlıyoruz.
               </p>
             </div>
 
