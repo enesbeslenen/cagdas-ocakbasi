@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://urfacagdasocakbasi.com/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://urfacagdasocakbasi.com/" />
     <image:image>
       <image:loc>https://urfacagdasocakbasi.com/yemek-kusbasi-sis.jpeg</image:loc>
-      <image:title>Çağdaş Ocakbaşı kuşbaşı şiş</image:title>
+      <image:title>Çağdaş Ocakbaşı kuşbaşı şiş — Şanlıurfa</image:title>
+      <image:caption>Şanlıurfa ocakbaşı kuşbaşı şiş</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://urfacagdasocakbasi.com/yemek-adana-kebap.jpeg</image:loc>
-      <image:title>Adana kebap</image:title>
+      <image:title>Adana kebap — Çağdaş Ocakbaşı</image:title>
+      <image:caption>Şanlıurfa Adana kebap</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-patlican-kebabi.jpeg</image:loc>
+      <image:title>Patlıcanlı kebap</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-karisik-izgara-tabak.jpeg</image:loc>
+      <image:title>Karışık ızgara tabağı</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-karisik-izgara-tepsi.jpeg</image:loc>
+      <image:title>Karışık ızgara tepsi</image:title>
     </image:image>
     <image:image>
       <image:loc>https://urfacagdasocakbasi.com/yemek-sillik-tatlisi.jpeg</image:loc>
-      <image:title>Şıllık tatlısı</image:title>
+      <image:title>Şıllık tatlısı — yöresel tatlı</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/menu/dalak-%C5%9Fi%C5%9F.jpeg</image:loc>
+      <image:title>Dalak şiş</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/menu/adana-kebap.png</image:loc>
+      <image:title>Adana kebap menü</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/favicon.png</image:loc>
+      <image:title>Çağdaş Ocakbaşı logo</image:title>
     </image:image>
   </url>
 </urlset>
