@@ -5,17 +5,25 @@ type GalleryItem = {
 };
 
 const items: GalleryItem[] = [
-  { src: "/yemek-kusbasi-sis.jpeg", alt: "Kuşbaşı şiş", objectPosition: "center 72%" },
-  { src: "/yemek-adana-kebap.jpeg", alt: "Adana kebabı" },
-  { src: "/yemek-patlican-kebabi.jpeg", alt: "Patlıcan kebabı" },
-  { src: "/yemek-kusbasi-sis-2.jpeg", alt: "Kuşbaşı şiş", objectPosition: "center 68%" },
-  { src: "/yemek-karisik-izgara-tabak.jpeg", alt: "Karışık ızgara tabağı" },
+  {
+    src: "/yemek-kusbasi-sis.jpeg",
+    alt: "Çağdaş Ocakbaşı kuşbaşı şiş — Şanlıurfa",
+    objectPosition: "center 72%",
+  },
+  { src: "/yemek-adana-kebap.jpeg", alt: "Adana kebap — Şanlıurfa ocakbaşı" },
+  { src: "/yemek-patlican-kebabi.jpeg", alt: "Patlıcanlı kebap — Çağdaş Ocakbaşı" },
+  {
+    src: "/yemek-kusbasi-sis-2.jpeg",
+    alt: "Kuşbaşı şiş ızgara — Şanlıurfa restoran",
+    objectPosition: "center 68%",
+  },
+  { src: "/yemek-karisik-izgara-tabak.jpeg", alt: "Karışık ızgara tabağı — ocakbaşı menü" },
   {
     src: "/yemek-karisik-izgara-tepsi.jpeg",
-    alt: "Karışık ızgara tepsi",
+    alt: "Karışık ızgara tepsi — Şanlıurfa kebap",
     objectPosition: "center 78%",
   },
-  { src: "/yemek-sillik-tatlisi.jpeg", alt: "Şıllık tatlısı" },
+  { src: "/yemek-sillik-tatlisi.jpeg", alt: "Yöresel şıllık tatlısı — Çağdaş Ocakbaşı" },
 ];
 
 export function Gallery() {

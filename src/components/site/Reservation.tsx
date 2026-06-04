@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_NUMBER = "905466581329";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
 export function Reservation() {
   const [form, setForm] = useState({

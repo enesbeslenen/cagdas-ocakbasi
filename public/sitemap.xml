@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://cagdas-ocakbasi.lovable.app/</loc>
+    <loc>https://urfacagdasocakbasi.com/</loc>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-kusbasi-sis.jpeg</image:loc>
+      <image:title>Çağdaş Ocakbaşı kuşbaşı şiş</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-adana-kebap.jpeg</image:loc>
+      <image:title>Adana kebap</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://urfacagdasocakbasi.com/yemek-sillik-tatlisi.jpeg</image:loc>
+      <image:title>Şıllık tatlısı</image:title>
+    </image:image>
   </url>
 </urlset>
