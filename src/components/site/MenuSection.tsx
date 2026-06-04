@@ -70,7 +70,7 @@ const menuImages: Record<string, MenuImage> = {
   "Terbiyesiz Tavuk": { src: "/menu/terbiyesiz-tavuk.png", objectPosition: "center 58%" },
   "Terbiyeli Tavuk": { src: "/menu/terbiyeli-tavuk.png", objectPosition: "62% 42%" },
   "Yürek Şiş": { src: "/menu/yürek-şiş.png", objectPosition: "center 55%" },
-  "Dalak Şiş": { src: "/menu/dalak-şiş.jpeg", objectPosition: "center 22%" },
+  "Dalak Şiş": { src: "/menu/dalak-şiş.jpeg", objectPosition: "center 42%" },
   "Kanat Şiş": { src: "/menu/kanat-şiş.jpeg", objectPosition: "center 55%" },
   "Adana Kebap": { src: "/menu/adana-kebap.png", objectPosition: "center 65%" },
   "Urfa Kebap": { src: "/menu/urfa-kebap.png", objectPosition: "center 65%" },
