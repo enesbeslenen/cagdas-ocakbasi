@@ -1,5 +1,12 @@
-import { Flame, Heart, Star } from "lucide-react";
-import { INSTAGRAM_URL, PHONE_DISPLAY, SITE_NAME } from "@/lib/site";
+import { Flame, Heart, Instagram, Star } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import {
+  INSTAGRAM_URL,
+  OPENING_HOURS_DISPLAY,
+  PHONE_DISPLAY,
+  SITE_NAME,
+  WHATSAPP_URL,
+} from "@/lib/site";
 
 const highlights = [
   {
@@ -93,17 +100,27 @@ export function Footer() {
               {PHONE_DISPLAY}
             </a>
           </p>
-          <p className="text-sm">Her gün 11:00 - 23:30</p>
-          <p className="text-sm mt-3">
+          <p className="text-sm">{OPENING_HOURS_DISPLAY}</p>
+          <div className="flex gap-3 mt-4">
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              aria-label="Instagram"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
             >
-              Instagram
+              <Instagram className="w-4 h-4" />
             </a>
-          </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp ile ulaş"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all"
+            >
+              <FaWhatsapp className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </div>
 

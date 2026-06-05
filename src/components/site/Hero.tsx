@@ -1,15 +1,18 @@
-import heroImg from "@/assets/hero-grill.jpg";
 import { Flame } from "lucide-react";
+
+const HERO_IMAGE = "/magaza-dis-gorunum.jpeg";
 
 export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <img
-        src={heroImg}
-        alt="Çağdaş Ocakbaşı ateşinde pişen kebaplar"
+        src={HERO_IMAGE}
+        alt="Çağdaş Ocakbaşı mağaza dış görünüm — Şanlıurfa"
         width={1920}
-        height={1280}
-        className="absolute inset-0 w-full h-full object-cover"
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover object-center"
       />
       <div className="absolute inset-0 bg-hero-overlay" />
 

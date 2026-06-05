@@ -6,6 +6,11 @@ type GalleryItem = {
 
 const items: GalleryItem[] = [
   {
+    src: "/magaza-dis-gorunum-gallery.jpeg",
+    alt: "Çağdaş Ocakbaşı mağaza dış görünüm — Şanlıurfa",
+    objectPosition: "center 45%",
+  },
+  {
     src: "/yemek-kusbasi-sis.jpeg",
     alt: "Çağdaş Ocakbaşı kuşbaşı şiş — Şanlıurfa",
     objectPosition: "center 72%",
@@ -43,15 +48,18 @@ export function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 md:auto-rows-[200px]">
-          {items.map((it) => (
+          {items.map((it, index) => (
             <figure
               key={it.src}
-              className="reveal relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full"
+              className="relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-border hover:ring-2 hover:ring-primary transition-all min-h-[160px] md:min-h-0 h-full bg-muted"
             >
               <img
                 src={it.src}
                 alt={it.alt}
-                loading="lazy"
+                width={600}
+                height={400}
+                loading={index < 4 ? "eager" : "lazy"}
+                fetchPriority={index < 2 ? "high" : "auto"}
                 decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={it.objectPosition ? { objectPosition: it.objectPosition } : undefined}

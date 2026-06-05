@@ -1,4 +1,7 @@
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { INSTAGRAM_URL, OPENING_HOURS_DISPLAY, WHATSAPP_URL } from "@/lib/site";
+import { LazyGoogleMap } from "@/components/site/LazyGoogleMap";
 
 export function Contact() {
   return (
@@ -26,31 +29,24 @@ export function Contact() {
               </a>
             </InfoRow>
             <InfoRow icon={<Clock className="w-5 h-5" />} title="Çalışma Saatleri" accent="primary">
-              Her gün 11:00 - 23:30
+              {OPENING_HOURS_DISPLAY}
             </InfoRow>
 
             <div className="pt-4">
               <p className="text-sm font-semibold mb-3 text-foreground">Bizi Takip Edin</p>
               <div className="flex gap-3">
-                <SocialLink
-                  href="https://www.instagram.com/cagdas_ocakbasii/"
-                  label="Instagram"
-                  external
-                >
+                <SocialLink href={INSTAGRAM_URL} label="Instagram" external>
                   <Instagram className="w-5 h-5" />
+                </SocialLink>
+                <SocialLink href={WHATSAPP_URL} label="WhatsApp ile ulaş" external>
+                  <FaWhatsapp className="w-5 h-5" />
                 </SocialLink>
               </div>
             </div>
           </div>
 
           <div className="reveal rounded-3xl overflow-hidden border border-border shadow-lg min-h-[360px] lg:min-h-[440px]">
-            <iframe
-              title="Çağdaş Ocakbaşı Konum"
-              src="https://www.google.com/maps?q=%C3%87a%C4%9Fda%C5%9F+Ocakba%C5%9F%C4%B1@37.1735127,38.8067735&ll=37.1735127,38.8067735&z=18&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <LazyGoogleMap />
           </div>
         </div>
       </div>

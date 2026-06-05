@@ -23,7 +23,12 @@ export const GEO = {
   longitude: 38.8067735,
 };
 
-export const OPENING_HOURS = "Mo-Su 11:00-23:30";
+export const OPENING_HOURS_DISPLAY = "Her gün 09:00 - 23:00";
+export const OPENING_HOURS = "Mo-Su 09:00-23:00";
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Merhaba Çağdaş Ocakbaşı, bilgi almak istiyorum.",
+)}`;
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/yemek-kusbasi-sis.jpeg`;
 
