@@ -1,7 +1,7 @@
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { INSTAGRAM_URL, OPENING_HOURS_DISPLAY, WHATSAPP_URL } from "@/lib/site";
-import { LazyGoogleMap } from "@/components/site/LazyGoogleMap";
+import { ContactMap } from "@/components/site/ContactMap";
 
 export function Contact() {
   return (
@@ -45,8 +45,8 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="reveal rounded-3xl overflow-hidden border border-border shadow-lg min-h-[360px] lg:min-h-[440px]">
-            <LazyGoogleMap />
+          <div className="rounded-3xl overflow-hidden border border-border shadow-lg">
+            <ContactMap />
           </div>
         </div>
       </div>

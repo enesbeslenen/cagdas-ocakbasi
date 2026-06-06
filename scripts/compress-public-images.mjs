@@ -3,18 +3,18 @@ import { readdir, rename, stat, unlink } from "fs/promises";
 import path from "path";
 
 const publicDir = path.join(process.cwd(), "public");
-const files = (await readdir(publicDir)).filter(
-  (f) => f.startsWith("yemek-") && f.endsWith(".jpg"),
-);
+const files = (await readdir(publicDir)).filter((f) => f.endsWith(".jpg"));
 
 for (const file of files) {
   const input = path.join(publicDir, file);
   const tmp = `${input}.tmp`;
   const before = (await stat(input)).size;
+  const isHero = file === "magaza-dis-gorunum.jpg";
+  const maxWidth = isHero ? 1920 : 1200;
 
   await sharp(input)
-    .resize(1200, 1200, { fit: "inside", withoutEnlargement: true })
-    .jpeg({ quality: 78, mozjpeg: true })
+    .resize(maxWidth, maxWidth, { fit: "inside", withoutEnlargement: true })
+    .jpeg({ quality: 80, mozjpeg: true })
     .toFile(tmp);
 
   await unlink(input);

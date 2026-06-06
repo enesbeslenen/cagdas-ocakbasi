@@ -48,7 +48,6 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: DEFAULT_OG_IMAGE },
     ],
     links: [
-      { rel: "preload", as: "image", href: "/magaza-dis-gorunum.jpeg", fetchPriority: "high" },
       { rel: "canonical", href: SITE_URL },
       { rel: "alternate", hrefLang: "tr", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

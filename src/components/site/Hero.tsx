@@ -1,18 +1,21 @@
 import { Flame } from "lucide-react";
 
-const HERO_IMAGE = "/magaza-dis-gorunum.jpeg";
+const HERO_IMAGE = "/magaza-dis-gece.webp";
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+    >
       <img
         src={HERO_IMAGE}
-        alt="Çağdaş Ocakbaşı mağaza dış görünüm — Şanlıurfa"
+        alt="Çağdaş Ocakbaşı mağaza gece görünümü — Şanlıurfa"
         width={1920}
         height={1080}
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
       <div className="absolute inset-0 bg-hero-overlay" />
 

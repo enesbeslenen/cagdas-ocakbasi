@@ -107,9 +107,6 @@ const menuImages: Record<string, MenuImage> = {
 
 const drinkItems = new Set(menu["İçecekler"]);
 
-/** Tüm yemek kartlarında sabit görsel yüksekliği. */
-const MENU_IMAGE_HEIGHT = "h-44 sm:h-48";
-
 const categoryIcons: Record<string, LucideIcon> = {
   "Izgara Çeşitleri": Flame,
   "Kebap Çeşitleri": Flame,
@@ -167,11 +164,12 @@ export function MenuSection() {
             return (
               <article
                 key={`${active}-${name}`}
-                className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-warm transition-all animate-fade-in"
+                className="group bg-card rounded-2xl border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-warm transition-all animate-fade-in overflow-hidden"
               >
                 {image && (
+                  <div className="p-3 pb-0">
                   <div
-                    className={`relative ${MENU_IMAGE_HEIGHT} overflow-hidden ${
+                    className={`site-photo-frame ${
                       isDrink
                         ? `flex items-center justify-center px-3 py-2 ${
                             image.darkBackground ? "bg-neutral-900" : "bg-white"
@@ -184,19 +182,20 @@ export function MenuSection() {
                       alt={`${name} — Çağdaş Ocakbaşı Şanlıurfa menü`}
                       loading="lazy"
                       decoding="async"
-                      className={
+                      className={`site-photo transition-transform duration-500 group-hover:scale-105${
                         isDrink
-                          ? `max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105${
+                          ? ` site-photo--contain px-2 py-2${
                               image.darkBackground ? "" : " mix-blend-multiply"
                             }`
-                          : "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      }
+                          : ""
+                      }`}
                       style={
                         image.objectPosition
                           ? { objectPosition: image.objectPosition }
                           : undefined
                       }
                     />
+                  </div>
                   </div>
                 )}
 

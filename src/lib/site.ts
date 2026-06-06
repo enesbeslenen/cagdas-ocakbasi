@@ -30,7 +30,7 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
   "Merhaba Çağdaş Ocakbaşı, bilgi almak istiyorum.",
 )}`;
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/yemek-kusbasi-sis.jpeg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/yemek-kusbasi-sis.jpg`;
 
 export const SEO_KEYWORDS = [
   "Çağdaş Ocakbaşı",

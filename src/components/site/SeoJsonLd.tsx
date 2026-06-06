@@ -18,7 +18,7 @@ const restaurantSchema = {
   description:
     "2005'ten beri Şanlıurfa'da geleneksel ocakbaşı kültürü. Kuşbaşı şiş, kebap çeşitleri ve yöresel şıllık tatlısı.",
   url: SITE_URL,
-  image: [DEFAULT_OG_IMAGE, `${SITE_URL}/yemek-adana-kebap.jpeg`, `${SITE_URL}/yemek-sillik-tatlisi.jpeg`],
+  image: [DEFAULT_OG_IMAGE, `${SITE_URL}/yemek-adana-kebap.jpg`, `${SITE_URL}/yemek-sillik-tatlisi.jpg`],
   logo: `${SITE_URL}/favicon.png`,
   telephone: PHONE_TEL,
   priceRange: "$$",

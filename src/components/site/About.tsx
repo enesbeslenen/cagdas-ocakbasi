@@ -1,5 +1,6 @@
-import interiorImg from "@/assets/gallery-interior.jpg";
 import { Flame, Heart, Star } from "lucide-react";
+
+const ABOUT_IMAGE = "/tabela.jpg";
 
 const highlights = [
   {
@@ -27,10 +28,11 @@ export function About() {
           <div className="reveal relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] max-h-[520px]">
               <img
-                src={interiorImg}
-                alt="Çağdaş Ocakbaşı mekan içi"
+                src={ABOUT_IMAGE}
+                alt="Çağdaş Ocakbaşı tabela — Şanlıurfa"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                decoding="async"
+                className="w-full h-full object-cover object-[center_35%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-transparent" />
             </div>
